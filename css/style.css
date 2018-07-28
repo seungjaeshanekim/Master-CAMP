@@ -71,7 +71,7 @@ html{
   font-size: 10px;
 }
 body{
-  font-size: 1.6rem;
+  /* font-size: 1.6rem; */
   color: #181818;
   font-family: 'Noto Sans Regular', sans-serif;
 }
@@ -89,6 +89,11 @@ body{
   top:0;
   left: 50%;
 } */
+/* 공통 반응형 콘텐츠 */
+.rwd-img{
+  max-width: 100%;
+  height: auto;
+}
 /* 공통 레이아웃 */
 .header, .navigation, .main, .footer{
   width: 100%;
@@ -99,12 +104,73 @@ input[name="search"]{
   border-radius: 3px;
   padding: 5px 5px 5px 10px;
 }
-/* 공통 내비게이션 */
-
 /* 공통 메인 */
+/* 공통 메인 섹션 제목 */
+.section-heading{
+  font-size: 1.3em;
+  font-family: "Noto Sans Bold";
+  height: 60px;
+  padding-left: 60px;
+  background: url("images/sprite_main.png") no-repeat 0 0;
+}
+.en-heading{
+  display: block;
+  text-transform: capitalize;
+}
+.recommend-book-heading .en-heading{
+  color: #ABD375;
+}
+.news-heading .en-heading{
+  color: #E8CA58;
+}
+.board-heading .en-heading{
+  color: #C7B39A;
+}
+.favorite-site-heading .en-heading{
+  color: #EEA60A;
+}
+.twitter-heading .en-heading{
+  color: #6AAEE6;
+}
+.news-heading{
+  background-position: 0 -230px;
+}
+.board-heading{
+  background-position: 0 -115px;
+}
+.favorite-site-heading{
+  background-position: 0 -345px;
+}
+.twitter-heading{
+  background-position: 0 -460px;
+}
+/* 공통 메인 섹션 문단 */
+.main [class$="-summary"]{
+  line-height: 1.5;
+}
+/* 공통 추천 서적 */
+.recommend-book-cover{
+  text-align: center;
+  margin: 10px auto;
+}
+.recommend-book-detail{
+  text-align: center;
+  margin: 10px 0;
+}
+.recommend-book-author,
+.recommend-book-author-name{
+  display: inline;
+}
+.recommend-book-grade{
+  font-size: 1.8em;
+  color: #ABD375;
+}
+.recommend-book-summary{
+  background: pink;
+  /* text-align: justify; */
+}
 .main{
   background: orange;
-  height: 70vh;
 }
 .recommend-book{
   background: yellow;
@@ -124,7 +190,6 @@ input[name="search"]{
 /* 공통 푸터 */
 .footer{
   background: violet;
-  height: 10vh;
 }
 @media screen and (max-width: 999px){
   /* 모바일 그리드 설정 - 4col */
@@ -144,6 +209,10 @@ input[name="search"]{
   }
   .grid-show .grid-unit{
     background-color: rgba(0,0,255,0.5);
+  }
+  /* 모바일 body */
+  body{
+    font-size: 1.4rem;
   }
   /* 모바일 헤더 */
   .header{
@@ -206,23 +275,17 @@ input[name="search"]{
     background-size: 100% 100%;
   }
   /* 모바일 내비게이션 */
-  /* .nav-container{
-    background: #000;
-  } */
   /* 모바일 메인 메뉴 제어 버튼 */
   .btn-menu{
-    position: absolute;
     width: 30px;
     height: 30px;
     border: 0;
+    position: absolute;
     right: 20px;
     top: 70px;
     overflow: hidden;
     cursor: pointer;
     background: transparent;
-  }
-  .btn-menu-act{
-    background: blue;
   }
   .menubar{
     position: absolute;
@@ -243,12 +306,12 @@ input[name="search"]{
     top: 100%;
     transform: translateY(-100%);
   }
-  .btn-menu-act .menubar-middle{
-    transform: translate(-100%, -50%);
-  }
   .btn-menu-act .menubar-top{
     top: 50%;
     transform: translateY(-50%) rotate(-45deg);
+  }
+  .btn-menu-act .menubar-middle{
+    transform: translate(-100%, -50%);
   }
   .btn-menu-act .menubar-bottom{
     top: 50%;
@@ -273,21 +336,23 @@ input[name="search"]{
   .menu-item{
     margin: 10px 0;
   }
-  .sub-menu li{
-    margin: 10px 0 10px 20px;
-  }
   .sub-menu{
     display: none;
   }
   .menu-item-act .sub-menu{
     display: block !important;
   }
-
+  .sub-menu li{
+    margin: 10px 0 10px 20px;
+  }
   /* 모바일 메인 */
   .main{
     display: flex;
     flex-direction: column;
-
+  }
+  /* 모바일 추천 서적 */
+  .recommend-book-cover{
+    width: 70%;
   }
   /* 모바일 푸터 */
 }
@@ -308,7 +373,10 @@ input[name="search"]{
   .grid-show .grid-unit{
     background-color: rgba(255,0,0,0.5);
   }
-
+  /* 데스크탑 body */
+  body{
+    font-size: 1.6rem;
+  }
   /* 웹카페 데스크탑 레이아웃 */
   .header,
   .navigation,
@@ -381,31 +449,27 @@ input[name="search"]{
   /* 데스크탑 내비게이션 */
   .nav-container {
     background-color: #988574;
-    /* border-top: 2px solid #000; */
     box-shadow: 0 -2px 5px 0 rgba(0,0,0,0.85), 0 2px 5px 0 rgba(0,0,0,0.85);
   }
   .btn-menu{
     display: none;
   }
-  .menu {
+  .menu{
     display: flex;
     justify-content: space-between;
     color: #fff;
     padding: 20px 0;
   }
-  .menu-item-text {
+  .menu-item-text{
     font-size: 1.8rem;
-    font-family: 'Noto Sans Bold';
+    font-family: "Noto Sans Bold";
     text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
   }
-  .sub-menu {
-  }
-  .sub-menu li {
+  .sub-menu li{
     margin: 10px 0 0 20px;
   }
   /* 데스크탑 메인 콘텐츠 */
   .main {
-    height: 70vh;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -413,8 +477,12 @@ input[name="search"]{
   .main > *{
     flex: auto 0 1;
   }
+  /* 데스크탑 추천 서적 */
   .recommend-book{
     flex-basis: 320px;
+  }
+  .recommend-book-cover{
+    width: 60%;
   }
   .news{
     flex-basis: 660px;
@@ -436,6 +504,5 @@ input[name="search"]{
     background-color: #988574;
   }
   .footer {
-    height: 10vh;
   }
 }
