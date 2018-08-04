@@ -20,22 +20,18 @@
                  images/image-4x.png 4x">
   </div>
   <div class="rwd-img-container">
-    <img src="images/normal.jpg" alt="" class="rwd-img" srcset="images/small.jpg 550w,
-                 images/medium.jpg 1024w,
-                images/large.jpg 1600w" sizes="(max-width: 550px) 100%, 
-                  (max-width: 1024px) 50%, 
-                  1600px">
-  </div>
-  <div class="rwd-img-container">
     <picture>
       <source srcset="images/large-1x.jpg 1x, images/large-2x.jpg 2x" media="(min-width: 1000px)">
       <source srcset="images/medium.jpg" media="(min-width: 481px) and (max-width: 999px)">
       <source srcset="images/small.jpg" media="(max-width: 480px)">
       <img src="images/normal.jpg" alt="" class="rwd-img">
     </picture>
-
   </div>
-
+  <div class="rwd-img-container">
+    <img src="images/normal.jpg" alt="" class="rwd-img" srcset="images/small.jpg 320w,
+                 images/medium.jpg 640w,
+                 images/large.jpg 1024w">
+  </div>
 </body>
 
 </html>
